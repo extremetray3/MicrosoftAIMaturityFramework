@@ -7,13 +7,23 @@
   max-width: none !important;
 }
 
-// Stop sidebar from growing on wide screens — keep it fixed at 16.5rem
-@media (min-width: 66.5rem) {
+// Wider centered layout: sidebar fixed at 16.5rem up to 100rem,
+// then gently re-centers on ultra-wide screens
+@media (min-width: 66.5rem) and (max-width: 99.99rem) {
   .side-bar {
     width: 16.5rem !important;
   }
   .side-bar + .main {
     margin-left: 16.5rem !important;
+  }
+}
+@media (min-width: 100rem) {
+  .side-bar {
+    width: calc((100% - 100rem) / 2 + 16.5rem) !important;
+    min-width: 16.5rem !important;
+  }
+  .side-bar + .main {
+    margin-left: calc((100% - 100rem) / 2 + 16.5rem) !important;
   }
 }
 
