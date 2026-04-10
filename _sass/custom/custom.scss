@@ -1,0 +1,778 @@
+// ============================================
+// Site-wide customizations
+// ============================================
+
+// Sidebar title — prevent cramped wrapping
+.site-title {
+  font-size: 1.1rem !important;
+  line-height: 1.3;
+}
+
+// TOC starts collapsed
+.main-content details.toc-collapsed:not([open]) > *:not(summary) {
+  display: none;
+}
+
+// Lines under H1 and H2
+.main-content h1 {
+  border-bottom: 3px solid #0078d4;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.main-content h2 {
+  border-bottom: 2px solid #0078d4;
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.8rem;
+}
+
+// Hero meta strip (Home page)
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.8rem 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+
+  strong {
+    color: #e0e0e0;
+  }
+}
+
+// Source reference banner
+.source-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(63, 185, 80, 0.08) 0%, rgba(0, 120, 212, 0.05) 100%);
+  border: 1px solid rgba(63, 185, 80, 0.25);
+  border-left: 3px solid #3fb950;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+
+  a {
+    color: #58a6ff;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// ===========================================
+// Maturity Cards
+// ===========================================
+
+.mc-container {
+  margin: 1.5rem 0 2rem;
+}
+
+.mc-cards-row {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mc-card {
+  flex: 1 1 0;
+  min-width: 220px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0;
+  transition: all 0.25s ease;
+  overflow: hidden;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.mc-card--selected {
+  border-color: #0078d4;
+  background: rgba(0, 120, 212, 0.08);
+  box-shadow: 0 0 12px rgba(0, 120, 212, 0.2);
+
+  .mc-card-badge {
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.25) 0%, rgba(0, 164, 239, 0.15) 100%);
+  }
+
+  .mc-level-num {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 120, 212, 0.5);
+  }
+
+  .mc-level-title {
+    color: #e0e0e0;
+  }
+
+  .mc-collapsible-body {
+    color: #d0d0d0;
+  }
+}
+
+.mc-card-badge {
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.mc-level-num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.25s;
+}
+
+.mc-level-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.25s;
+}
+
+// Level-specific badge colors
+.mc-badge-100 { border-bottom-color: rgba(248, 81, 73, 0.3); }
+.mc-badge-200 { border-bottom-color: rgba(210, 153, 34, 0.3); }
+.mc-badge-300 { border-bottom-color: rgba(88, 166, 255, 0.3); }
+.mc-badge-400 { border-bottom-color: rgba(63, 185, 80, 0.3); }
+.mc-badge-500 { border-bottom-color: rgba(188, 140, 255, 0.3); }
+
+.mc-card--selected .mc-badge-100 .mc-level-num { color: #f85149; }
+.mc-card--selected .mc-badge-200 .mc-level-num { color: #d29922; }
+.mc-card--selected .mc-badge-300 .mc-level-num { color: #58a6ff; }
+.mc-card--selected .mc-badge-400 .mc-level-num { color: #3fb950; }
+.mc-card--selected .mc-badge-500 .mc-level-num { color: #bc8cff; }
+
+// Select indicator row
+.mc-select-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mc-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.mc-select-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+
+  .mc-card--selected & {
+    color: #58a6ff;
+    font-weight: 600;
+  }
+}
+
+.mc-indicator {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mc-indicator--active {
+  border-color: #58a6ff;
+  background: #58a6ff;
+  box-shadow: 0 0 6px rgba(88, 166, 255, 0.5);
+}
+
+// Collapsible sections
+.mc-collapsible {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.mc-collapsible-title {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s, background 0.2s;
+
+  &::-webkit-details-marker { display: none; }
+
+  &::before {
+    content: '▸';
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  details[open] > & {
+    &::before { transform: rotate(90deg); }
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.mc-collapsible-body {
+  padding: 0 0.8rem 0.8rem;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+
+  .mc-card--selected & {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  ul {
+    margin: 0.3rem 0;
+    padding-left: 1.2rem;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+}
+
+// Card notes
+.mc-card-notes {
+  padding: 0.5rem 0.8rem 0.8rem;
+}
+
+.mc-notes-input {
+  width: 100%;
+  min-height: 40px;
+  max-height: 150px;
+  padding: 0.4rem 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: #0078d4;
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+  }
+}
+
+// Export button for maturity
+.mc-export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.5rem 0 1.5rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid rgba(63, 185, 80, 0.35);
+  border-radius: 6px;
+  background: rgba(63, 185, 80, 0.12);
+  color: #3fb950;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: rgba(63, 185, 80, 0.22);
+    color: #56d364;
+  }
+}
+
+// Responsive: stack cards vertically on small screens
+@media (max-width: 900px) {
+  .mc-cards-row {
+    flex-direction: column;
+  }
+
+  .mc-card {
+    flex: none;
+    max-width: 100%;
+  }
+}
+
+// ===========================================
+// Notes toolbar & controls (from aisec-site)
+// ===========================================
+.notes-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  margin: 0 0 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.notes-toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.notes-customer-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  margin-right: auto;
+}
+
+.notes-customer-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  width: 180px;
+
+  &:focus {
+    outline: none;
+    border-color: #0078d4;
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.25);
+  }
+}
+
+.notes-toolbar-btn {
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+}
+
+.notes-export-btn {
+  background: rgba(63, 185, 80, 0.12);
+  border-color: rgba(63, 185, 80, 0.35);
+  color: #3fb950;
+
+  &:hover {
+    background: rgba(63, 185, 80, 0.22);
+    color: #56d364;
+  }
+}
+
+.notes-save-session-btn {
+  background: rgba(0, 120, 212, 0.12);
+  border-color: rgba(0, 120, 212, 0.35);
+  color: #58a6ff;
+
+  &:hover {
+    background: rgba(0, 120, 212, 0.22);
+    color: #79c0ff;
+  }
+}
+
+.notes-load-session-btn {
+  background: rgba(210, 153, 34, 0.12);
+  border-color: rgba(210, 153, 34, 0.35);
+  color: #d29922;
+
+  &:hover {
+    background: rgba(210, 153, 34, 0.22);
+    color: #e3b341;
+  }
+}
+
+.notes-clear-btn {
+  background: rgba(248, 81, 73, 0.08);
+  border-color: rgba(248, 81, 73, 0.25);
+  color: #f85149;
+
+  &:hover {
+    background: rgba(248, 81, 73, 0.15);
+    color: #ff7b72;
+  }
+}
+
+.notes-control {
+  margin-bottom: 0.3rem;
+}
+
+.notes-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.notes-icon { font-size: 0.85rem; }
+.notes-label { font-weight: 500; }
+
+.notes-panel {
+  margin: 0.3rem 0 0.8rem;
+}
+
+.notes-textarea {
+  width: 100%;
+  min-height: 60px;
+  max-height: 200px;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: #0078d4;
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+  }
+}
+
+// ===========================================
+// Frontier Cards (Pillar / Phase / Service)
+// ===========================================
+
+.fc-container {
+  margin: 1.5rem 0 2rem;
+}
+
+.fc-cards-row {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fc-card {
+  flex: 1 1 0;
+  min-width: 240px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0;
+  transition: all 0.25s ease;
+  overflow: hidden;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.fc-card--selected {
+  border-color: var(--fc-accent, #0078d4);
+  background: rgba(0, 120, 212, 0.08);
+  box-shadow: 0 0 12px rgba(0, 120, 212, 0.2);
+}
+
+.fc-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 2px solid var(--fc-accent, #58a6ff);
+}
+
+.fc-card-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-card-subtitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fc-accent, #58a6ff);
+  opacity: 0.8;
+}
+
+.fc-card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  line-height: 1.3;
+
+  .fc-card--selected & {
+    color: #fff;
+  }
+}
+
+// Select indicator row
+.fc-select-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fc-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.fc-select-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+
+  .fc-card--selected & {
+    color: var(--fc-accent, #58a6ff);
+    font-weight: 600;
+  }
+}
+
+.fc-indicator {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.fc-indicator--active {
+  border-color: var(--fc-accent, #58a6ff);
+  background: var(--fc-accent, #58a6ff);
+  box-shadow: 0 0 6px rgba(88, 166, 255, 0.5);
+}
+
+// Card summary
+.fc-card-summary {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+
+  .fc-card--selected & {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+// Card notes
+.fc-card-notes {
+  padding: 0 0.8rem 0.5rem;
+}
+
+.fc-notes-input {
+  width: 100%;
+  min-height: 36px;
+  max-height: 150px;
+  padding: 0.4rem 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: var(--fc-accent, #0078d4);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+  }
+}
+
+// Collapsible sections
+.fc-collapsible {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.fc-collapsible-title {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s, background 0.2s;
+
+  &::-webkit-details-marker { display: none; }
+
+  &::before {
+    content: '▸';
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  details[open] > & {
+    &::before { transform: rotate(90deg); }
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.fc-collapsible-body {
+  padding: 0 0.8rem 0.8rem;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+
+  .fc-card--selected & {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  ul {
+    margin: 0.3rem 0;
+    padding-left: 1.2rem;
+  }
+
+  li {
+    margin-bottom: 0.3rem;
+  }
+
+  img {
+    margin-top: 0.5rem;
+  }
+}
+
+// Responsive: stack frontier cards vertically on small screens
+@media (max-width: 900px) {
+  .fc-cards-row {
+    flex-direction: column;
+  }
+
+  .fc-card {
+    flex: none;
+    max-width: 100%;
+  }
+}
+
+// Anti-pattern cards
+.anti-pattern {
+  margin: 0.8rem 0;
+  padding: 0.8rem 1rem;
+  background: rgba(248, 81, 73, 0.04);
+  border: 1px solid rgba(248, 81, 73, 0.15);
+  border-left: 3px solid rgba(248, 81, 73, 0.4);
+  border-radius: 6px;
+}
+
+.anti-pattern h4 {
+  color: #f85149;
+  margin-bottom: 0.4rem;
+}
+
+.anti-pattern p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
