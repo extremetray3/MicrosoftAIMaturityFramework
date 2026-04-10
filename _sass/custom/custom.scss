@@ -4,7 +4,7 @@
 
 // Widen main content so 5 maturity cards fit without scrolling
 .main-content-wrap {
-  max-width: 1400px;
+  max-width: none !important;
 }
 
 // Sidebar title — prevent cramped wrapping
