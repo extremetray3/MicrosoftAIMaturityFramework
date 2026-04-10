@@ -2,9 +2,16 @@
 // Site-wide customizations
 // ============================================
 
-// Widen main content so 5 maturity cards fit without scrolling
+// Widen page: remove content max-width and narrow sidebar
 .main-content-wrap {
   max-width: none !important;
+}
+
+@media (min-width: 800px) {
+  .side-bar {
+    width: 200px !important;
+    min-width: 200px !important;
+  }
 }
 
 // Sidebar title — prevent cramped wrapping
@@ -94,7 +101,7 @@
 
 .mc-card {
   flex: 1 1 0;
-  min-width: 180px;
+  min-width: 120px;
   max-width: none;
   display: flex;
   flex-direction: column;
