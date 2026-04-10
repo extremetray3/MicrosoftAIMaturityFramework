@@ -2,16 +2,9 @@
 // Site-wide customizations
 // ============================================
 
-// Widen page: remove content max-width and narrow sidebar
+// Widen page: remove content max-width cap
 .main-content-wrap {
   max-width: none !important;
-}
-
-@media (min-width: 800px) {
-  .side-bar {
-    width: 200px !important;
-    min-width: 200px !important;
-  }
 }
 
 // Sidebar title — prevent cramped wrapping
@@ -101,7 +94,7 @@
 
 .mc-card {
   flex: 1 1 0;
-  min-width: 120px;
+  min-width: 0;
   max-width: none;
   display: flex;
   flex-direction: column;
