@@ -7,9 +7,9 @@
   max-width: none !important;
 }
 
-// Wider centered layout: sidebar fixed at 16.5rem up to 100rem,
-// then gently re-centers on ultra-wide screens
-@media (min-width: 66.5rem) and (max-width: 99.99rem) {
+// Wider centered layout: sidebar fixed at 16.5rem up to 80rem,
+// then gently re-centers on wide screens
+@media (min-width: 66.5rem) and (max-width: 79.99rem) {
   .side-bar {
     width: 16.5rem !important;
   }
@@ -17,13 +17,13 @@
     margin-left: 16.5rem !important;
   }
 }
-@media (min-width: 100rem) {
+@media (min-width: 80rem) {
   .side-bar {
-    width: calc((100% - 100rem) / 2 + 16.5rem) !important;
+    width: calc((100% - 80rem) / 2 + 16.5rem) !important;
     min-width: 16.5rem !important;
   }
   .side-bar + .main {
-    margin-left: calc((100% - 100rem) / 2 + 16.5rem) !important;
+    margin-left: calc((100% - 80rem) / 2 + 16.5rem) !important;
   }
 }
 
