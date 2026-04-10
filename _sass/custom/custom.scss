@@ -2,14 +2,38 @@
 // Site-wide customizations
 // ============================================
 
-// Widen page: remove content max-width cap
+// Widen page: remove content max-width cap, compact sidebar
 .main-content-wrap {
   max-width: none !important;
 }
 
+// Compact sidebar: 13rem instead of 15.5/16.5rem default
+@media (min-width: 50rem) {
+  .side-bar {
+    width: 13rem !important;
+    min-width: 13rem !important;
+  }
+  .side-bar + .main {
+    margin-left: 13rem !important;
+  }
+}
+@media (min-width: 66.5rem) {
+  .side-bar {
+    width: 13rem !important;
+    min-width: 13rem !important;
+  }
+}
+
+// Sidebar nav: smaller font to fit compact width
+.site-nav {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  font-size: 0.85rem;
+}
+
 // Sidebar title — prevent cramped wrapping
 .site-title {
-  font-size: 1.1rem !important;
+  font-size: 1rem !important;
   line-height: 1.3;
 }
 
@@ -86,10 +110,9 @@
 
 .mc-cards-row {
   display: flex;
-  gap: 0.75rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  -webkit-overflow-scrolling: touch;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 .mc-card {
@@ -104,6 +127,7 @@
   padding: 0;
   transition: all 0.25s ease;
   overflow: hidden;
+  word-break: break-word;
 
   &:hover {
     border-color: rgba(255, 255, 255, 0.2);
