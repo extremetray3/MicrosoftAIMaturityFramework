@@ -2,6 +2,11 @@
 // Site-wide customizations
 // ============================================
 
+// Widen main content so 5 maturity cards fit without scrolling
+.main-content-wrap {
+  max-width: 1400px;
+}
+
 // Sidebar title — prevent cramped wrapping
 .site-title {
   font-size: 1.1rem !important;
@@ -89,8 +94,8 @@
 
 .mc-card {
   flex: 1 1 0;
-  min-width: 220px;
-  max-width: 320px;
+  min-width: 180px;
+  max-width: none;
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.03);
@@ -529,8 +534,8 @@
 
 .fc-card {
   flex: 1 1 0;
-  min-width: 240px;
-  max-width: 360px;
+  min-width: 180px;
+  max-width: none;
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.03);
